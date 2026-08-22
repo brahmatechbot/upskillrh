@@ -20,3 +20,30 @@ Upskills RH ajuda consultorias, integradoras e empresas de tecnologia a reduzir 
 ## Deploy local
 
 O webroot `/var/www/upskillrh.com.br` aponta para `site/` neste repositório.
+
+## Ambiente de desenvolvimento
+
+### Backend
+
+O backend fica em `backend/` e usa Go com PostgreSQL.
+
+```bash
+make db-setup
+make test
+make build
+make run
+```
+
+API local padrão:
+
+```text
+http://127.0.0.1:8092/api/health
+```
+
+### Frontend
+
+O frontend fica em `site/` e usa HTML, CSS, JavaScript vanilla e jQuery 4.0.0 via CDN oficial.
+
+### Requisitos
+
+Os requisitos do produto ficam em `requisitos/` e serão atualizados por solicitações via Telegram.

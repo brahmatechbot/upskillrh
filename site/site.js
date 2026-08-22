@@ -1,16 +1,18 @@
-const revealItems = document.querySelectorAll('.reveal');
+$(function () {
+  $('.reveal').addClass('visible');
 
-if ('IntersectionObserver' in window) {
-  const observer = new IntersectionObserver((entries) => {
-    for (const entry of entries) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    }
-  }, { threshold: 0.16 });
+  $('a[href^="#"]').on('click', function (event) {
+    const targetSelector = $(this).attr('href');
+    if (!targetSelector || targetSelector === '#') return;
 
-  revealItems.forEach((item) => observer.observe(item));
-} else {
-  revealItems.forEach((item) => item.classList.add('visible'));
-}
+    const $target = $(targetSelector);
+    if (!$target.length) return;
+
+    event.preventDefault();
+    $('html, body').animate({ scrollTop: $target.offset().top - 72 }, 320);
+  });
+
+  $('[href^="mailto:"]').on('click', function () {
+    $(this).attr('data-clicked-at', new Date().toISOString());
+  });
+});

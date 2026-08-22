@@ -3,3 +3,7 @@ _source_docs/*.txt
 _source_docs/download-summary.json
 _source_docs/*.json
 !_source_docs/site-strategy.md
+backend/.env
+backend/backend
+backend/upskillrh-backend
+*.test
