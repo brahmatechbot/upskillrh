@@ -1,15 +1,19 @@
 :root {
   color-scheme: light;
-  --bg: #f5f7fb;
-  --card: #ffffff;
-  --ink: #122033;
-  --muted: #667085;
-  --primary: #2563eb;
-  --primary-dark: #1d4ed8;
+  --bg: #f7f3fb;
+  --surface: #ffffff;
+  --surface-2: #ebe7ef;
+  --ink: #0c0b11;
+  --muted: #5b5b66;
+  --line: #ded7ea;
+  --accent: #7057ee;
+  --accent-2: #d9f426;
+  --accent-dark: #2f2f4b;
+  --accent-soft: #ccb0e8;
   --danger: #b42318;
   --danger-bg: #fff1f3;
-  --border: #d0d5dd;
-  --focus: #84caff;
+  --focus: rgba(217, 244, 38, .78);
+  --shadow: 0 24px 70px rgba(47, 47, 75, 0.20);
 }
 
 * { box-sizing: border-box; }
@@ -18,8 +22,22 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: radial-gradient(circle at top left, #dbeafe, transparent 34rem), var(--bg);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(112, 87, 238, .28), transparent 32rem),
+    radial-gradient(circle at 92% 14%, rgba(217, 244, 38, .24), transparent 24rem),
+    linear-gradient(180deg, #f7f3fb 0%, #ebe7ef 100%);
   color: var(--ink);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: auto -10rem -15rem auto;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 999px;
+  background: rgba(204, 176, 232, .36);
+  pointer-events: none;
 }
 
 .login-shell {
@@ -30,22 +48,43 @@ body {
 }
 
 .login-card {
-  width: min(100%, 28rem);
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.96);
-  border: 1px solid rgba(208, 213, 221, 0.72);
-  border-radius: 1.5rem;
-  box-shadow: 0 1.5rem 4rem rgba(16, 24, 40, 0.12);
+  position: relative;
+  width: min(100%, 29rem);
+  padding: 2.1rem;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(222, 215, 234, 0.95);
+  border-radius: 1.6rem;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.login-card::after {
+  content: "";
+  position: absolute;
+  width: 9rem;
+  height: 9rem;
+  right: -3.5rem;
+  top: -4rem;
+  border-radius: 999px;
+  background: rgba(217, 244, 38, .35);
+  pointer-events: none;
 }
 
 .brand {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: .65rem;
+  gap: .75rem;
   margin-bottom: 1.5rem;
   color: var(--ink);
-  font-weight: 800;
+  font-weight: 900;
   text-decoration: none;
+}
+
+.brand-logo {
+  width: 10.5rem;
+  height: auto;
 }
 
 .brand-mark {
@@ -54,31 +93,38 @@ body {
   width: 2.4rem;
   height: 2.4rem;
   border-radius: .85rem;
-  background: #111827;
-  color: #fff;
+  background: var(--ink);
+  color: var(--accent-2);
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(1.75rem, 5vw, 2.35rem);
-  line-height: 1.08;
+  font-size: clamp(1.85rem, 5vw, 2.45rem);
+  line-height: 1.05;
+  letter-spacing: -.045em;
 }
 
 .intro, .support, .legal { color: var(--muted); }
-.intro { margin: .6rem 0 1.5rem; }
+.intro { margin: .65rem 0 1.5rem; }
 
 .field { margin-bottom: 1rem; }
-label { display: block; font-weight: 700; margin-bottom: .4rem; }
+label { display: block; font-weight: 800; margin-bottom: .4rem; }
 
 input[type="email"], input[type="password"] {
   width: 100%;
   min-height: 3rem;
   padding: .75rem .9rem;
-  border: 1px solid var(--border);
-  border-radius: .85rem;
+  border: 1px solid var(--line);
+  border-radius: .9rem;
   background: #fff;
   color: var(--ink);
   font: inherit;
+}
+
+input[type="email"]:hover,
+input[type="password"]:hover,
+.ghost-button:hover {
+  border-color: rgba(112, 87, 238, .48);
 }
 
 input:focus-visible, button:focus-visible, a:focus-visible {
@@ -90,11 +136,11 @@ input:focus-visible, button:focus-visible, a:focus-visible {
 .password-row input { flex: 1; }
 .ghost-button {
   min-width: 5.5rem;
-  border: 1px solid var(--border);
-  border-radius: .85rem;
+  border: 1px solid var(--line);
+  border-radius: .9rem;
   background: #fff;
-  color: var(--ink);
-  font-weight: 700;
+  color: var(--accent-dark);
+  font-weight: 800;
   cursor: pointer;
 }
 
@@ -104,9 +150,9 @@ input:focus-visible, button:focus-visible, a:focus-visible {
   align-items: flex-start;
   margin: .75rem 0 1.25rem;
   color: var(--muted);
-  font-weight: 600;
+  font-weight: 700;
 }
-.check-row input { margin-top: .2rem; }
+.check-row input { margin-top: .2rem; accent-color: var(--accent); }
 
 .primary-button {
   position: relative;
@@ -117,14 +163,15 @@ input:focus-visible, button:focus-visible, a:focus-visible {
   width: 100%;
   min-height: 3.1rem;
   border: 0;
-  border-radius: .95rem;
-  background: var(--primary);
+  border-radius: 999px;
+  background: var(--accent);
   color: #fff;
   font: inherit;
-  font-weight: 800;
+  font-weight: 900;
   cursor: pointer;
+  box-shadow: 0 14px 28px rgba(112, 87, 238, .24);
 }
-.primary-button:hover { background: var(--primary-dark); }
+.primary-button:hover { background: var(--accent-dark); }
 .primary-button:disabled { cursor: progress; opacity: .76; }
 .spinner {
   display: none;
@@ -141,13 +188,14 @@ input:focus-visible, button:focus-visible, a:focus-visible {
 .summary {
   margin-bottom: 1rem;
   padding: .8rem 1rem;
-  border-radius: .85rem;
+  border-radius: .9rem;
   background: var(--danger-bg);
   color: var(--danger);
-  font-weight: 700;
+  font-weight: 800;
 }
 .secondary-links { margin-top: 1.2rem; }
-a { color: var(--primary-dark); font-weight: 700; }
+a { color: var(--accent); font-weight: 800; }
+a:hover { color: var(--accent-dark); }
 .legal { font-size: .9rem; }
 
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -156,4 +204,5 @@ a { color: var(--primary-dark); font-weight: 700; }
   .login-card { padding: 1.35rem; border-radius: 1.1rem; }
   .password-row { flex-direction: column; }
   .ghost-button { min-height: 2.75rem; }
+  .brand-logo { width: 9rem; }
 }

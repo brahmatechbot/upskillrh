@@ -1,24 +1,28 @@
 <svg width="820" height="920" viewBox="0 0 820 920" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Mapa de mercado para Upskills RH</title>
-  <desc id="desc">Ilustração abstrata com segmentos de consultorias de tecnologia, outsourcing e software houses.</desc>
-  <rect width="820" height="920" fill="#10201D"/>
-  <circle cx="650" cy="210" r="230" fill="#0F766E" opacity="0.52"/>
-  <circle cx="210" cy="720" r="250" fill="#B8F3DF" opacity="0.16"/>
-  <rect x="86" y="110" width="650" height="170" rx="38" fill="#ECFEFF"/>
-  <text x="132" y="180" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#10201D">Consultorias de tecnologia</text>
-  <text x="132" y="226" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#0F766E">alocação, bench, ramp-up e margem</text>
+  <desc id="desc">Ilustração abstrata com segmentos de consultorias de tecnologia, outsourcing e software houses na identidade visual preta, lavanda, roxa e amarelo-limão.</desc>
+  <rect width="820" height="920" fill="#0C0B11"/>
+  <circle cx="650" cy="210" r="230" fill="#7057EE" opacity="0.55"/>
+  <circle cx="210" cy="720" r="250" fill="#D9F426" opacity="0.18"/>
+  <path d="M76 94C210 34 356 42 512 118C634 178 706 166 764 134" stroke="#CCB0E8" stroke-width="16" stroke-linecap="round" opacity="0.28"/>
 
-  <rect x="86" y="340" width="300" height="220" rx="34" fill="#B8F3DF"/>
-  <text x="128" y="414" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#10201D">Outsourcing</text>
-  <path d="M130 486H316" stroke="#0F766E" stroke-width="16" stroke-linecap="round"/>
-  <path d="M130 526H268" stroke="#0F766E" stroke-width="16" stroke-linecap="round" opacity="0.52"/>
+  <rect x="86" y="110" width="650" height="170" rx="38" fill="#F7F3FB"/>
+  <text x="132" y="180" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#0C0B11">Consultorias de tecnologia</text>
+  <text x="132" y="226" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#7057EE">alocação, bench, ramp-up e margem</text>
+  <rect x="590" y="146" width="88" height="88" rx="26" fill="#D9F426"/>
+  <path d="M616 200L636 180L650 194L670 166" stroke="#0C0B11" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <rect x="434" y="340" width="300" height="220" rx="34" fill="#FFFFFF"/>
-  <text x="476" y="414" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#10201D">Software</text>
-  <path d="M478 486H650" stroke="#0F766E" stroke-width="16" stroke-linecap="round"/>
-  <path d="M478 526H612" stroke="#0F766E" stroke-width="16" stroke-linecap="round" opacity="0.52"/>
+  <rect x="86" y="340" width="300" height="220" rx="34" fill="#CCB0E8"/>
+  <text x="128" y="414" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#0C0B11">Outsourcing</text>
+  <path d="M130 486H316" stroke="#7057EE" stroke-width="16" stroke-linecap="round"/>
+  <path d="M130 526H268" stroke="#7057EE" stroke-width="16" stroke-linecap="round" opacity="0.56"/>
 
-  <rect x="86" y="625" width="650" height="186" rx="38" fill="#0B4F49"/>
-  <text x="132" y="700" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900" fill="#ECFEFF">Indicador que importa</text>
-  <text x="132" y="750" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#B8F3DF">tempo até gerar valor e permanência no primeiro ano</text>
+  <rect x="434" y="340" width="300" height="220" rx="34" fill="#F7F3FB"/>
+  <text x="476" y="414" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="900" fill="#0C0B11">Software</text>
+  <path d="M478 486H650" stroke="#7057EE" stroke-width="16" stroke-linecap="round"/>
+  <path d="M478 526H612" stroke="#D9F426" stroke-width="16" stroke-linecap="round"/>
+
+  <rect x="86" y="625" width="650" height="186" rx="38" fill="#2F2F4B"/>
+  <text x="132" y="700" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="900" fill="#F7F3FB">Indicador que importa</text>
+  <text x="132" y="750" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#D9F426">tempo até gerar valor e permanência no primeiro ano</text>
 </svg>
