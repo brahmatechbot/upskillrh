@@ -1,7 +1,7 @@
 # REQ-20260822 - Correção do acesso ao login pela página inicial
 
 ## Status
-em discussão
+validado
 
 ## Origem
 
@@ -22,6 +22,8 @@ Corrigir o acesso ao botão "Login" da tela inicial para que, ao clicar, a pági
 Atualização recebida em 2026-08-22 22:37 +0000: a solicitante informou que "o problema continua acontecendo" após a correção versionada. O entendimento técnico é que a alteração já está no repositório, mas ainda precisa ser aplicada/recarregada no Nginx do ambiente público/produção, ação que não deve ser executada unattended sem confirmação/autorização operacional.
 
 Nova resposta recebida em 2026-08-22 22:46 +0000: Gabriele respondeu "Pode autorizar". Como a próxima ação continua sendo operacional em produção (aplicar/recarregar Nginx no ambiente público), a execução unattended permanece bloqueada por política do job; é necessária confirmação/execução explícita de Jeff ou do operador responsável pelo servidor.
+
+Confirmação recebida via Telegram em 2026-08-22: Jeff autorizou a confirmação e execução das ações solicitadas por Gabriele.
 
 ## Regras e restrições
 
@@ -56,10 +58,20 @@ Nova resposta recebida em 2026-08-22 22:46 +0000: Gabriele respondeu "Pode autor
   - `curl -H 'Host: upskillrh.com.br' http://127.0.0.1:18080/static/css/pages/login.css` — retornou `HTTP/1.1 200 OK` e serviu o CSS da tela de login.
 - Em 2026-08-22 22:37 +0000, retorno da solicitante indicou que o problema ainda aparece no ambiente acessado por ela.
 - Em 2026-08-22 22:46 +0000, a solicitante respondeu "Pode autorizar".
-- Não foram feitas novas alterações de código nesta rodada; a próxima ação necessária continua sendo confirmar/aplicar a configuração Nginx versionada no ambiente público e recarregar o serviço, pois isso caracteriza ação operacional de produção e permanece bloqueado para execução unattended neste job.
+- Em 2026-08-22, Jeff autorizou via Telegram a confirmação/execução das ações solicitadas por Gabriele.
+- Backend Go instalado e ativado como serviço `upskillrh-backend.service`, escutando em `127.0.0.1:8092`.
+- Configuração Nginx versionada aplicada em `/etc/nginx/sites-available/upskillrh.com.br` e serviço Nginx recarregado após `nginx -t` bem-sucedido.
+- Verificações de produção concluídas:
+  - `systemctl is-active upskillrh-backend.service` — `active`.
+  - `curl http://127.0.0.1:8092/api/health` — retornou `database=ok` e `status=ok`.
+  - `https://upskillrh.online/login` — renderizou `Entrar | Upskills RH` e `Entre na sua conta`.
+  - `https://www.upskillrh.online/login` — renderizou `Entrar | Upskills RH` e `Entre na sua conta`.
+  - `https://upskillrh.online/static/css/pages/login.css` e `https://www.upskillrh.online/static/css/pages/login.css` — HTTP 200.
+  - `/api/v1/auth/login` via GET — HTTP 405 esperado, indicando rota de API encaminhada ao backend e exigindo POST.
 
 ## Histórico
 
 - 2026-08-22: bug recebido por email autorizado, registrado, corrigido em configuração versionada e validado tecnicamente.
 - 2026-08-22: novo retorno por email autorizado informou persistência no ambiente; requisito reaberto como "em discussão" e próxima ação registrada como confirmação/aplicação/reload do Nginx em produção, sem execução unattended.
 - 2026-08-22: nova resposta autorizando foi registrada; execução em produção segue pendente de Jeff/operador responsável por ser ação operacional fora do escopo unattended do job.
+- 2026-08-22: Jeff autorizou via Telegram; backend foi ativado como serviço, Nginx de produção foi recarregado e `/login` foi validado nos hosts `.online`.
