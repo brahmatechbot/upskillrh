@@ -5,6 +5,8 @@ import (
 	"encoding/json"
 	"net/http"
 	"time"
+
+	platformauth "github.com/brahmatechbot/upskillrh/backend/internal/platform/auth"
 )
 
 type pinger interface {
@@ -12,16 +14,26 @@ type pinger interface {
 }
 
 type app struct {
-	db pinger
+	db          pinger
+	authHandler *platformauth.Handler
 }
 
-func newApp(db pinger) *app {
-	return &app{db: db}
+func newApp(db pinger, authHandler ...*platformauth.Handler) *app {
+	a := &app{db: db}
+	if len(authHandler) > 0 {
+		a.authHandler = authHandler[0]
+	}
+	return a
 }
 
 func (a *app) routes() http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/health", a.handleHealth)
+	if a.authHandler != nil {
+		mux.HandleFunc("/login", a.authHandler.LoginPage)
+		mux.HandleFunc("/api/v1/auth/login", a.authHandler.LoginAPI)
+		mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
+	}
 	return mux
 }
 

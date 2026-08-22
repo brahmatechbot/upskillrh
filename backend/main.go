@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	platformauth "github.com/brahmatechbot/upskillrh/backend/internal/platform/auth"
 	"github.com/jackc/pgx/v5/pgxpool"
 )
 
@@ -22,9 +23,16 @@ func main() {
 	}
 	defer pool.Close()
 
+	authRepo := platformauth.NewPostgresRepository(pool)
+	authService := platformauth.NewLoginService(authRepo, platformauth.NewMemoryRateLimiter(5, 5*time.Minute))
+	authHandler, err := platformauth.NewHandler(authService, "web/templates/auth/login.html")
+	if err != nil {
+		log.Fatalf("load login template: %v", err)
+	}
+
 	server := &http.Server{
 		Addr:              cfg.HTTPAddr,
-		Handler:           newApp(pool).routes(),
+		Handler:           newApp(pool, authHandler).routes(),
 		ReadHeaderTimeout: 5 * time.Second,
 	}
 

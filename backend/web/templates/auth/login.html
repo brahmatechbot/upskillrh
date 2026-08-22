@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar | Upskills RH</title>
+  <link rel="icon" href="/upskills-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/pages/login.css">
+</head>
+<body>
+  <main class="login-shell">
+    <section class="login-card" aria-labelledby="login-title">
+      <a class="brand" href="/" aria-label="Upskills RH">
+        <span class="brand-mark">UR</span>
+        <span>Upskills RH</span>
+      </a>
+
+      <div id="form-summary" class="summary" role="alert" tabindex="-1" hidden></div>
+
+      <h1 id="login-title">Entre na sua conta</h1>
+      <p class="intro">Use o e-mail cadastrado para acessar a plataforma.</p>
+
+      <form id="login-form" novalidate>
+        <input type="hidden" id="csrf_token" name="csrf_token" value="{{ .CSRFToken }}">
+
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" autocomplete="username" maxlength="254" required inputmode="email">
+          <p class="field-error" id="email-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="password">Senha</label>
+          <div class="password-row">
+            <input id="password" name="password" type="password" autocomplete="current-password" maxlength="1024" required>
+            <button type="button" id="toggle-password" class="ghost-button" aria-controls="password" aria-pressed="false">Mostrar</button>
+          </div>
+          <p class="field-error" id="password-error" aria-live="polite"></p>
+        </div>
+
+        <label class="check-row">
+          <input id="remember_me" name="remember_me" type="checkbox">
+          <span>Manter conectado neste dispositivo</span>
+        </label>
+
+        <button id="submit-button" class="primary-button" type="submit">
+          <span class="button-text">Entrar</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <div class="secondary-links">
+        <a href="/">Voltar</a>
+      </div>
+
+      <p class="support">Precisa de ajuda? Fale com o suporte da Upskills RH.</p>
+      <p class="legal"><a href="/termos-de-uso">Termos de Uso</a> · <a href="/politica-de-privacidade">Política de Privacidade</a></p>
+    </section>
+  </main>
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js" defer></script>
+  <script src="/static/js/pages/login.js" defer></script>
+</body>
+</html>
