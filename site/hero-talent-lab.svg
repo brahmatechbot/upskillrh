@@ -1,0 +1,38 @@
+<svg width="900" height="1125" viewBox="0 0 900 1125" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Laboratório de talentos Upskills RH</title>
+  <desc id="desc">Ilustração abstrata de uma trilha de aprendizagem com jovens talentos, competências e validação.</desc>
+  <rect width="900" height="1125" fill="#E8F7F1"/>
+  <circle cx="700" cy="170" r="210" fill="#B8F3DF" opacity="0.72"/>
+  <circle cx="210" cy="875" r="260" fill="#D7F0EA"/>
+  <path d="M160 214C282 118 406 124 532 232C642 326 722 338 798 306" stroke="#0F766E" stroke-width="18" stroke-linecap="round" opacity="0.22"/>
+  <path d="M124 810C236 676 382 624 562 652C682 671 754 620 818 526" stroke="#0F766E" stroke-width="18" stroke-linecap="round" opacity="0.18"/>
+
+  <rect x="90" y="120" width="340" height="270" rx="42" fill="#FFFFFF" stroke="#CBE4DD" stroke-width="3"/>
+  <text x="134" y="178" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800" fill="#10201D">Diagnóstico</text>
+  <rect x="134" y="218" width="220" height="18" rx="9" fill="#0F766E" opacity="0.88"/>
+  <rect x="134" y="258" width="154" height="18" rx="9" fill="#74DCC3"/>
+  <rect x="134" y="298" width="256" height="18" rx="9" fill="#D9E8E2"/>
+  <rect x="134" y="338" width="182" height="18" rx="9" fill="#D9E8E2"/>
+
+  <rect x="470" y="178" width="300" height="360" rx="48" fill="#10201D"/>
+  <text x="526" y="252" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="900" fill="#ECFEFF">UP DAY</text>
+  <text x="526" y="298" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#B8F3DF">imersão e validação</text>
+  <circle cx="600" cy="408" r="58" fill="#B8F3DF"/>
+  <circle cx="682" cy="420" r="42" fill="#74DCC3"/>
+  <circle cx="536" cy="432" r="38" fill="#ECFEFF"/>
+
+  <rect x="120" y="500" width="300" height="410" rx="48" fill="#FFFFFF" stroke="#CBE4DD" stroke-width="3"/>
+  <text x="166" y="570" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="#10201D">Microlearning</text>
+  <circle cx="204" cy="668" r="34" fill="#0F766E"/>
+  <circle cx="284" cy="668" r="34" fill="#B8F3DF"/>
+  <circle cx="364" cy="668" r="34" fill="#D9E8E2"/>
+  <rect x="164" y="750" width="212" height="20" rx="10" fill="#0F766E" opacity="0.9"/>
+  <rect x="164" y="795" width="168" height="20" rx="10" fill="#74DCC3"/>
+  <rect x="164" y="840" width="226" height="20" rx="10" fill="#D9E8E2"/>
+
+  <rect x="488" y="640" width="310" height="265" rx="44" fill="#FFFFFF" stroke="#CBE4DD" stroke-width="3"/>
+  <text x="534" y="710" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="#10201D">Evidências</text>
+  <path d="M548 800L604 846L736 746" stroke="#0F766E" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="90" y="986" width="720" height="38" rx="19" fill="#10201D" opacity="0.88"/>
+  <rect x="90" y="1045" width="520" height="20" rx="10" fill="#0F766E" opacity="0.82"/>
+</svg>
