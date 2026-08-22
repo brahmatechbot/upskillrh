@@ -7,15 +7,15 @@ validado
 
 - Canal: email
 - Remetente: Gabriele Guedes <gabrielepgsantos@outlook.com>
-- Data do email: 2026-08-22 23:03 UTC; atualização em 2026-08-22 23:16 UTC
+- Data do email: 2026-08-22 23:03 UTC; atualização em 2026-08-22 23:16 UTC; atualização em 2026-08-22 23:23 UTC
 - Assunto: requisitosistema-upskillrh redefinir padrao de cores e logo; Re: requisitosistema-upskillrh redefinir padrao de cores e logo
-- Message ID: 1a02bb6b4a516592 / thread 1a02bb6b4a516592; atualização 1a02bc295fbf3a7d / thread 1a02bb6b4a516592
+- Message ID: 1a02bb6b4a516592 / thread 1a02bb6b4a516592; atualização 1a02bc295fbf3a7d / thread 1a02bb6b4a516592; atualização 1a02bc9308a83d5a / thread 1a02bb6b4a516592
 
 ## Contexto
 
 A solicitação inicial pediu que a imagem enviada por email fosse usada como referência para redefinir a paleta de cores, o logo e o layout visual da landing page da Upskills RH.
 
-Na atualização, a remetente informou que o resultado ainda não ficou adequado e pediu aplicação do padrão de cores em todas as páginas, incluindo a tela de login, além de recriação das imagens respeitando cada contexto e a nova paleta.
+Na atualização, a remetente informou que o resultado ainda não ficou adequado e pediu aplicação do padrão de cores em todas as páginas, incluindo a tela de login, além de recriação das imagens respeitando cada contexto e a nova paleta. Em nova resposta, apontou especificamente que ainda faltava alterar a imagem da seção "Foco inicial: consultorias de tecnologia".
 
 ## Solicitação
 
@@ -23,6 +23,7 @@ Na atualização, a remetente informou que o resultado ainda não ficou adequado
 - Rever todo o layout público para seguir o padrão visual da imagem enviada.
 - Aplicar o padrão de cores também na tela de login.
 - Recriar as imagens/ilustrações do site respeitando o contexto de cada seção e a paleta preta, lavanda, roxa e amarelo-limão.
+- Alterar especificamente a imagem da seção "Foco inicial: consultorias de tecnologia" para uma ilustração contextual aderente à nova identidade.
 - Usar o anexo `Image.jpeg` como referência e asset local versionado.
 
 ## Regras e restrições
@@ -39,6 +40,7 @@ Na atualização, a remetente informou que o resultado ainda não ficou adequado
 - O logo SVG é atualizado para refletir a nova identidade visual.
 - A imagem hero é recriada como ilustração contextual da jornada Upskills RH.
 - O mapa visual de mercado é recriado/ajustado para a mesma paleta.
+- A imagem da seção "Foco inicial: consultorias de tecnologia" deixa de ser genérica e comunica consultorias, talentos, clientes, squads, evidências, ramp-up e margem.
 - Cache-busting dos assets estáticos é atualizado.
 - `make test` e `make build` passam.
 - Verificação estática/local confirma que HTML, CSS e assets principais são servidos corretamente.
@@ -69,8 +71,11 @@ Na atualização, a remetente informou que o resultado ainda não ficou adequado
 - Substituí o marcador textual da marca no login pelo logo SVG oficial.
 - Recriei a imagem hero como SVG contextual (`site/assets/hero-upskills-context.svg`) com diagnóstico, microlearning, UP DAY e evidências.
 - Recriei/ajustei o mapa de mercado (`site/market-map.svg`) para a mesma identidade visual.
+- Na atualização `1a02bc9308a83d5a`, refiz a imagem da seção "Foco inicial: consultorias de tecnologia" como uma ilustração contextual, conectando talentos, clientes, squads, evidências, ramp-up, bench e margem.
+- Atualizei a referência da imagem no HTML para `market-map.svg?v=2` e melhorei o texto alternativo para refletir o novo contexto.
 
 ## Histórico
 
 - 2026-08-22 23:03 UTC: requisito recebido por email autorizado, registrado e implementado na landing page.
 - 2026-08-22 23:16 UTC: ajuste recebido por email autorizado; requisito atualizado para ampliar padrão visual à tela de login e recriar imagens contextuais.
+- 2026-08-22 23:23 UTC: ajuste recebido por email autorizado; imagem da seção "Foco inicial: consultorias de tecnologia" recriada como ilustração contextual e referência atualizada no HTML.
