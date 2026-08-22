@@ -13,7 +13,7 @@ validado
 
 ## Contexto
 
-A solicitação pede atualização da comunicação visual inicial da landing page da Upskills RH, trocando a punch line atual e usando a imagem enviada em anexo como referência visual da interface principal.
+A solicitação pede atualização da comunicação visual inicial da landing page da UP Skill, trocando a punch line atual e usando a imagem enviada em anexo como referência visual da interface principal.
 
 ## Solicitação
 

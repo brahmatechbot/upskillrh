@@ -5,7 +5,7 @@ aprovado
 
 ## Contexto
 
-O projeto Upskills RH precisa de uma base técnica para evoluir de landing page para aplicação web com backend, banco de dados e frontend estático progressivo.
+O projeto UP Skill precisa de uma base técnica para evoluir de landing page para aplicação web com backend, banco de dados e frontend estático progressivo.
 
 ## Objetivo
 

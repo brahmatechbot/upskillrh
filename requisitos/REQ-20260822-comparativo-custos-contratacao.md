@@ -13,7 +13,7 @@ validado
 
 ## Contexto
 
-Solicitação enviada por membro autorizado do projeto Upskills RH para complementar o site com conteúdo comparativo sobre custo de contratação e atualizar o endereço de contato exibido nos CTAs.
+Solicitação enviada por membro autorizado do projeto UP Skill para complementar o site com conteúdo comparativo sobre custo de contratação e atualizar o endereço de contato exibido nos CTAs.
 
 ## Solicitação
 
@@ -24,7 +24,7 @@ Solicitação enviada por membro autorizado do projeto Upskills RH para compleme
 
 - Manter a alteração limitada ao site estático do projeto.
 - Não executar ações destrutivas, alterações de acesso, credenciais, banco de dados, billing ou deploy de produção sem autorização explícita.
-- Manter conteúdo em português e alinhado ao posicionamento da Upskills RH.
+- Manter conteúdo em português e alinhado ao posicionamento da UP Skill.
 
 ## Critérios de aceite
 

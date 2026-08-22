@@ -1,6 +1,6 @@
 # upskillrh.com.br
 
-Site institucional estático do projeto Upskills RH.
+Site institucional estático do projeto UP Skill.
 
 ## Estrutura
 
@@ -15,7 +15,7 @@ Site institucional estático do projeto Upskills RH.
 
 ## Posicionamento inicial
 
-Upskills RH ajuda consultorias, integradoras e empresas de tecnologia a reduzir o tempo entre contratação e geração de valor, preparando talentos com diagnóstico, microlearning, validação por evidências, UP DAY e acompanhamento de ramp-up.
+UP Skill ajuda consultorias, integradoras e empresas de tecnologia a reduzir o tempo entre contratação e geração de valor, preparando talentos com diagnóstico, microlearning, validação por evidências, UP DAY e acompanhamento de ramp-up.
 
 ## Deploy local
 

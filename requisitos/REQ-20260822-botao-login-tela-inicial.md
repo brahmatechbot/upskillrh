@@ -13,7 +13,7 @@ validado
 
 ## Contexto
 
-A página inicial da Upskills RH já possui uma ação principal "Conversar" no cabeçalho e o sistema já tem rota pública de login disponível em `/login`.
+A página inicial da UP Skill já possui uma ação principal "Conversar" no cabeçalho e o sistema já tem rota pública de login disponível em `/login`.
 
 ## Solicitação
 

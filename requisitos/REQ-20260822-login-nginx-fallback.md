@@ -64,8 +64,8 @@ Confirmação recebida via Telegram em 2026-08-22: Jeff autorizou a confirmaçã
 - Verificações de produção concluídas:
   - `systemctl is-active upskillrh-backend.service` — `active`.
   - `curl http://127.0.0.1:8092/api/health` — retornou `database=ok` e `status=ok`.
-  - `https://upskillrh.online/login` — renderizou `Entrar | Upskills RH` e `Entre na sua conta`.
-  - `https://www.upskillrh.online/login` — renderizou `Entrar | Upskills RH` e `Entre na sua conta`.
+  - `https://upskillrh.online/login` — renderizou `Entrar | UP Skill` e `Entre na sua conta`.
+  - `https://www.upskillrh.online/login` — renderizou `Entrar | UP Skill` e `Entre na sua conta`.
   - `https://upskillrh.online/static/css/pages/login.css` e `https://www.upskillrh.online/static/css/pages/login.css` — HTTP 200.
   - `/api/v1/auth/login` via GET — HTTP 405 esperado, indicando rota de API encaminhada ao backend e exigindo POST.
 

@@ -1,6 +1,6 @@
-# Backend Upskills RH
+# Backend UP Skill
 
-Backend de desenvolvimento em Go para o projeto Upskills RH.
+Backend de desenvolvimento em Go para o projeto UP Skill.
 
 ## Stack
 

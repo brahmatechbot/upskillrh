@@ -13,7 +13,7 @@ validado
 
 ## Contexto
 
-Solicitação para implementar a primeira entrega de autenticação do sistema Upskills RH, limitada à tela AUTH-01 — Login, sem alterar a home e sem criar cadastro, recuperação de senha, MFA, SSO, seleção de empresa, logout ou outros módulos.
+Solicitação para implementar a primeira entrega de autenticação do sistema UP Skill, limitada à tela AUTH-01 — Login, sem alterar a home e sem criar cadastro, recuperação de senha, MFA, SSO, seleção de empresa, logout ou outros módulos.
 
 ## Solicitação
 

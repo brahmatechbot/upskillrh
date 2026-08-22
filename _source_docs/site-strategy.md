@@ -3,7 +3,7 @@
 ## Fontes
 
 - Pitch: problema de turnover, retenção, perda financeira, liderança, remuneração e carreira. Solução com jornada pré-candidatura, etapa humana, pós-contratação, comunidade, fit de vagas e validador de competência.
-- Jornada: Academia de Talentos, diagnóstico, microlearning, jogos, portfólio de evidências, validação Upskills, UP DAY, Hub B2B e comunidade.
+- Jornada: Academia de Talentos, diagnóstico, microlearning, jogos, portfólio de evidências, validação UP Skill, UP DAY, Hub B2B e comunidade.
 - PesquisaFocadaTecnologia.pdf: prioridade comercial em consultorias de tecnologia, integradoras, outsourcing especializado e empresas que contratam profissionais de tecnologia em escala.
 
 ## Tese principal

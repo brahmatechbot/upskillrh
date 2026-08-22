@@ -1,4 +1,4 @@
-# Requisitos do projeto Upskills RH
+# Requisitos do projeto UP Skill
 
 Esta pasta guarda os requisitos funcionais, técnicos e de produto do projeto.
 
