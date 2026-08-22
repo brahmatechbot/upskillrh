@@ -148,12 +148,12 @@ h1 {
   box-shadow: var(--shadow);
 }
 .hero-photo {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 3 / 2;
   border-radius: 22px;
   overflow: hidden;
   background: #dcebe5;
 }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.9) contrast(1.02); }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.98) contrast(1.02); }
 .metric-card {
   position: absolute;
   left: -28px;
