@@ -1,0 +1,5 @@
+_source_docs/*.pdf
+_source_docs/*.txt
+_source_docs/download-summary.json
+_source_docs/*.json
+!_source_docs/site-strategy.md
