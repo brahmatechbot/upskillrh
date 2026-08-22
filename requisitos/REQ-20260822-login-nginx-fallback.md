@@ -1,15 +1,15 @@
 # REQ-20260822 - Correção do acesso ao login pela página inicial
 
 ## Status
-validado
+em discussão
 
 ## Origem
 
 - Canal: email
 - Remetente: Gabriele Guedes <gabrielepgsantos@outlook.com>
-- Data do email: 2026-08-22 22:29 +0000
-- Assunto: RE: requisitosistema-upskillrh tela de login inicial
-- Message ID: 1a02b977f7fcee30 / Thread ID: 1a02b8703c5c4ca4
+- Data do email: 2026-08-22 22:29 +0000; atualização: 2026-08-22 22:37 +0000
+- Assunto: RE: requisitosistema-upskillrh tela de login inicial; RE: RE: requisitosistema-upskillrh tela de login inicial
+- Message ID: 1a02b977f7fcee30 / Thread ID: 1a02b8703c5c4ca4; atualização Message ID: 1a02b9f13b48c811 / Thread ID: 1a02b8703c5c4ca4
 
 ## Contexto
 
@@ -18,6 +18,8 @@ Após a inclusão do botão "Login" na tela inicial, o clique atualizava a URL p
 ## Solicitação
 
 Corrigir o acesso ao botão "Login" da tela inicial para que, ao clicar, a página de login seja realmente renderizada em `/login`.
+
+Atualização recebida em 2026-08-22 22:37 +0000: a solicitante informou que "o problema continua acontecendo" após a correção versionada. O entendimento técnico é que a alteração já está no repositório, mas ainda precisa ser aplicada/recarregada no Nginx do ambiente público/produção, ação que não deve ser executada unattended sem confirmação/autorização operacional.
 
 ## Regras e restrições
 
@@ -50,7 +52,10 @@ Corrigir o acesso ao botão "Login" da tela inicial para que, ao clicar, a pági
   - `nginx -t` com wrapper/sanitização local da configuração — sintaxe OK e teste bem-sucedido.
   - `curl -H 'Host: upskillrh.com.br' http://127.0.0.1:18080/login` contra Nginx local sanitizado — retornou `HTTP/1.1 200 OK` e renderizou `Entre na sua conta`.
   - `curl -H 'Host: upskillrh.com.br' http://127.0.0.1:18080/static/css/pages/login.css` — retornou `HTTP/1.1 200 OK` e serviu o CSS da tela de login.
+- Em 2026-08-22 22:37 +0000, retorno da solicitante indicou que o problema ainda aparece no ambiente acessado por ela.
+- Não foram feitas novas alterações de código nesta rodada; a próxima ação necessária é confirmar/aplicar a configuração Nginx versionada no ambiente público e recarregar o serviço, pois isso caracteriza ação operacional de produção.
 
 ## Histórico
 
 - 2026-08-22: bug recebido por email autorizado, registrado, corrigido em configuração versionada e validado tecnicamente.
+- 2026-08-22: novo retorno por email autorizado informou persistência no ambiente; requisito reaberto como "em discussão" e próxima ação registrada como confirmação/aplicação/reload do Nginx em produção, sem execução unattended.
