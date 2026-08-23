@@ -56,6 +56,7 @@ body::before {
   border-radius: 1.6rem;
   box-shadow: var(--shadow);
   overflow: hidden;
+  text-align: center;
 }
 
 .wide-card { width: min(100%, 48rem); }
@@ -75,10 +76,12 @@ body::before {
 .brand {
   position: relative;
   z-index: 1;
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: .75rem;
   margin-bottom: 1.5rem;
+  width: 100%;
   color: var(--ink);
   font-weight: 900;
   text-decoration: none;
@@ -111,6 +114,7 @@ h1 {
 .signup-help { margin: -.25rem 0 1rem; }
 
 .field { margin-bottom: 1rem; }
+.field, .check-row, .summary { text-align: left; }
 label { display: block; font-weight: 800; margin-bottom: .4rem; }
 
 input[type="email"], input[type="password"], input[type="text"], select {

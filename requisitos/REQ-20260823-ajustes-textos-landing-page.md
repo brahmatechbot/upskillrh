@@ -64,11 +64,13 @@ Reformular os textos da home/landing page para cobrir:
 - Logo anexado aplicado inicialmente na tela `/login` como imagem de marca e favicon: `/backend/web/static/img/upskill-logo-gabriele-20260823.png`.
 - Ajustes de tamanho/cache bust em `/site/styles.css`, `/site/index.html`, `/backend/web/templates/auth/login.html` e `/backend/web/static/css/pages/login.css`.
 - Correção complementar solicitada por Gabriele em 2026-08-23 14:23 UTC: aplicar o mesmo logo também nas demais páginas do fluxo de login/autenticação (`/backend/web/templates/auth/register.html`, `/backend/web/templates/auth/app.html` e `/backend/web/templates/auth/candidate.html`) e uniformizar cache bust do CSS de autenticação.
+- Ajuste complementar solicitado por Gabriele em 2026-08-23 14:25 UTC: centralizar os textos do card da página de login/autenticação conforme imagem inline anexada ao email (`image.png`, Content-ID `9dcc0489-e7fb-4d85-b267-5b6c46d7edb0`), preservando campos, checkbox, resumo de erro e formulários alinhados à esquerda para legibilidade.
 - Nova verificação da correção complementar executada:
   - `make test` — passou.
   - `make build` — passou.
   - Parser HTML local com `html.parser` — passou para login, cadastro, área da empresa e área do candidato.
   - Checagem estática local — passou: todos os templates de autenticação referenciam `/static/img/upskill-logo-gabriele-20260823.png`, o asset existe e não há referência remanescente a `upskills-logo.svg` nesses templates.
+  - Checagem estática local do CSS — passou: `.login-card` usa `text-align: center`, `.brand` centraliza com flex e `.field`, `.check-row` e `.summary` permanecem com `text-align: left`.
 - Verificação executada:
   - `make test` — passou.
   - `make build` — passou.
@@ -83,3 +85,4 @@ Reformular os textos da home/landing page para cobrir:
 - 2026-08-23: alteração de frontend implementada e validada localmente.
 - 2026-08-23 14:18 UTC: Gabriele enviou atualização no mesmo thread solicitando considerar a imagem anexada como logo e aplicá-la na página inicial e na página de login. Gmail message ID `1a02efc6da89ba54`, thread `1a02ecbb70babe21`.
 - 2026-08-23 14:23 UTC: Gabriele apontou que ainda faltava alterar a página de login. A correção foi interpretada como cobertura completa do fluxo de autenticação, pois `/login` já estava atualizado; registradas alterações em cadastro, área da empresa e área do candidato. Gmail message ID `1a02f00fb4e4b559`, thread `1a02ecbb70babe21`.
+- 2026-08-23 14:25 UTC: Gabriele solicitou centralizar os textos da página de login e anexou imagem inline de referência. Gmail message ID `1a02f035ffe25e2d`, thread `1a02ecbb70babe21`.
