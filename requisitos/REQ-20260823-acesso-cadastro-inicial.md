@@ -71,7 +71,13 @@ Implementar o pacote de autenticação e cadastro inicial composto por:
 - Verificação executada:
   - `make test` — passou.
   - `make build` — passou.
+- Atualização de acompanhamento recebida em 2026-08-23 13:39 +0000:
+  - Message ID: `1a02ed952d5dcf64` / Thread ID: `1a02e9f3ac742372`.
+  - Solicitação: pergunta de status/progresso da atividade.
+  - Resposta preparada: primeira versão funcional já implementada e commitada; falta validar em ambiente com banco migrado e definir envio/captura real de e-mail de verificação.
+  - Verificação de acompanhamento: `make test` e `make build` passaram novamente.
 
 ## Histórico
 
 - 2026-08-23: Requisito recebido por email autorizado, registrado e implementado em primeira versão funcional do pacote de cadastro inicial.
+- 2026-08-23: Gabriele solicitou atualização de progresso; status confirmado como primeira versão funcional em desenvolvimento, com pendência de validação em ambiente com banco migrado e definição do fluxo real de e-mail de verificação.
