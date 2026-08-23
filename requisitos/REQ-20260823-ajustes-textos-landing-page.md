@@ -65,14 +65,24 @@ Reformular os textos da home/landing page para cobrir:
 - Ajustes de tamanho/cache bust em `/site/styles.css`, `/site/index.html`, `/backend/web/templates/auth/login.html` e `/backend/web/static/css/pages/login.css`.
 - Correção complementar solicitada por Gabriele em 2026-08-23 14:23 UTC: aplicar o mesmo logo também nas demais páginas do fluxo de login/autenticação (`/backend/web/templates/auth/register.html`, `/backend/web/templates/auth/app.html` e `/backend/web/templates/auth/candidate.html`) e uniformizar cache bust do CSS de autenticação.
 - Ajuste complementar solicitado por Gabriele em 2026-08-23 14:25 UTC: centralizar os textos do card da página de login/autenticação conforme imagem inline anexada ao email (`image.png`, Content-ID `9dcc0489-e7fb-4d85-b267-5b6c46d7edb0`), preservando campos, checkbox, resumo de erro e formulários alinhados à esquerda para legibilidade.
-- Nova observação de Gabriele em 2026-08-23 14:28 UTC: a tela pública de login ainda exibia o logo antigo. Verificação externa em `https://upskillrh.online/login` confirmou que o ambiente publicado ainda estava servindo HTML antigo com `upskills-logo.svg`, enquanto o código no repositório já referencia o PNG novo. Próxima ação depende de autorização explícita de Jeff para restart/deploy/reload em produção; não executado neste job por ser ação de produção vedada sem confirmação.
+- Nova observação de Gabriele em 2026-08-23 14:28 UTC: a tela pública de login ainda exibia o logo antigo. Verificação externa em `https://upskillrh.online/login` confirmou que o ambiente publicado ainda estava servindo HTML antigo com `upskills-logo.svg`, enquanto o código no repositório já referencia o PNG novo. Próxima ação dependia de autorização explícita de Jeff para restart/deploy/reload em produção; não foi executada pelo job por ser ação de produção vedada sem confirmação.
+- Em 2026-08-23 15:14 UTC, Jeff autorizou via Telegram o deploy/restart pendente do backend em produção.
+- Deploy/restart executado após autorização:
+  - `make test` — passou.
+  - `make build` — passou.
+  - binário backend recompilado em `/home/hermes/projects/upskillrh/backend/upskillrh-backend`.
+  - `upskillrh-backend.service` reiniciado com sucesso e permaneceu `active`.
+  - `curl http://127.0.0.1:8092/api/health` retornou `database=ok` e `status=ok`.
+  - `sudo nginx -t` passou.
+  - `https://upskillrh.online/login` e `https://www.upskillrh.online/login` passaram a referenciar `/static/img/upskill-logo-gabriele-20260823.png` e não retornaram mais `upskills-logo.svg`.
+  - asset do logo novo retornou HTTP 200 com 619722 bytes nos dois hosts `.online`.
+  - CSS da tela de login retornou HTTP 200 nos dois hosts `.online`.
 - Nova verificação da correção complementar executada:
   - `make test` — passou.
   - `make build` — passou.
   - Parser HTML local com `html.parser` — passou para login, cadastro, área da empresa e área do candidato.
   - Checagem estática local — passou: todos os templates de autenticação referenciam `/static/img/upskill-logo-gabriele-20260823.png`, o asset existe e não há referência remanescente a `upskills-logo.svg` nesses templates.
   - Checagem estática local do CSS — passou: `.login-card` usa `text-align: center`, `.brand` centraliza com flex e `.field`, `.check-row` e `.summary` permanecem com `text-align: left`.
-  - Verificação pública sem deploy: `https://upskillrh.online/login` ainda retornou HTML antigo com `upskills-logo.svg`; `/static/img/upskill-logo-gabriele-20260823.png` retornou HTTP 200. Diagnóstico: asset novo está disponível, mas a aplicação publicada precisa ser reiniciada/publicada para servir o template atualizado.
 - Verificação executada:
   - `make test` — passou.
   - `make build` — passou.
