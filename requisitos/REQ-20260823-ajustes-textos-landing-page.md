@@ -65,7 +65,7 @@ Reformular os textos da home/landing page para cobrir:
   - `make build` — passou.
   - Parser HTML local com `html.parser` — passou.
   - Servidor estático local (`python3 -m http.server`) + `curl` com Host header — passou.
-- Commit e push serão registrados após envio ao GitHub.
+- Commit enviado ao GitHub: `ca83da2` (`Update landing page positioning copy`).
 
 ## Histórico
 
