@@ -74,6 +74,30 @@ func TestLoginHandlerRejectsInvalidCredentialsWithoutEnumeration(t *testing.T) {
 	}
 }
 
+func TestLoginPageShowsRegistrationLinks(t *testing.T) {
+	handler, err := NewHandler(nil, nil,
+		"../../../web/templates/auth/login.html",
+		"../../../web/templates/auth/register.html",
+		"../../../web/templates/auth/candidate.html",
+		"../../../web/templates/auth/app.html",
+	)
+	if err != nil {
+		t.Fatal(err)
+	}
+	req := httptest.NewRequest(http.MethodGet, "/login", nil)
+	rec := httptest.NewRecorder()
+	handler.LoginPage(rec, req)
+	if rec.Code != http.StatusOK {
+		t.Fatalf("expected 200, got %d body=%s", rec.Code, rec.Body.String())
+	}
+	body := rec.Body.String()
+	for _, want := range []string{"/cadastro?tipo=empresa", "/cadastro?tipo=candidato", "Criar conta empresarial", "Criar conta como candidato"} {
+		if !strings.Contains(body, want) {
+			t.Fatalf("login page should contain %q; body=%s", want, body)
+		}
+	}
+}
+
 func TestRateLimit(t *testing.T) {
 	limiter := NewMemoryRateLimiter(1, 300000000000)
 	if ok, _ := limiter.Allow("k"); !ok {

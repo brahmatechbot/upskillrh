@@ -106,8 +106,9 @@ h1 {
   letter-spacing: -.045em;
 }
 
-.intro, .support, .legal { color: var(--muted); }
+.intro, .support, .legal, .signup-help { color: var(--muted); }
 .intro { margin: .65rem 0 1.5rem; }
+.signup-help { margin: -.25rem 0 1rem; }
 
 .field { margin-bottom: 1rem; }
 label { display: block; font-weight: 800; margin-bottom: .4rem; }

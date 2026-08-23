@@ -76,8 +76,14 @@ Implementar o pacote de autenticação e cadastro inicial composto por:
   - Solicitação: pergunta de status/progresso da atividade.
   - Resposta preparada: primeira versão funcional já implementada e commitada; falta validar em ambiente com banco migrado e definir envio/captura real de e-mail de verificação.
   - Verificação de acompanhamento: `make test` e `make build` passaram novamente.
+- Correção solicitada em 2026-08-23 13:57 +0000:
+  - Message ID: `1a02ee9f3183526d` / Thread ID: `1a02e9f3ac742372`.
+  - Solicitação: tela de login ainda não refletia os novos links de cadastro.
+  - Ação: reforçada a renderização das chamadas de cadastro na tela de login, com texto auxiliar, versionamento do CSS e teste automatizado garantindo os links `/cadastro?tipo=empresa` e `/cadastro?tipo=candidato`.
+  - Próxima ação: publicar/reiniciar o serviço backend em ambiente homologação/produção com autorização operacional, pois a instância local em `127.0.0.1:8092` ainda executava binário anterior carregado em memória.
 
 ## Histórico
 
 - 2026-08-23: Requisito recebido por email autorizado, registrado e implementado em primeira versão funcional do pacote de cadastro inicial.
 - 2026-08-23: Gabriele solicitou atualização de progresso; status confirmado como primeira versão funcional em desenvolvimento, com pendência de validação em ambiente com banco migrado e definição do fluxo real de e-mail de verificação.
+- 2026-08-23: Gabriele reportou que a tela de login não refletia os links; correção registrada e coberta por teste automatizado, com publicação/restart pendente de autorização de ambiente.
