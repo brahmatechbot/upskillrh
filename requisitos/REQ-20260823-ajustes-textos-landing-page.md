@@ -65,12 +65,14 @@ Reformular os textos da home/landing page para cobrir:
 - Ajustes de tamanho/cache bust em `/site/styles.css`, `/site/index.html`, `/backend/web/templates/auth/login.html` e `/backend/web/static/css/pages/login.css`.
 - Correção complementar solicitada por Gabriele em 2026-08-23 14:23 UTC: aplicar o mesmo logo também nas demais páginas do fluxo de login/autenticação (`/backend/web/templates/auth/register.html`, `/backend/web/templates/auth/app.html` e `/backend/web/templates/auth/candidate.html`) e uniformizar cache bust do CSS de autenticação.
 - Ajuste complementar solicitado por Gabriele em 2026-08-23 14:25 UTC: centralizar os textos do card da página de login/autenticação conforme imagem inline anexada ao email (`image.png`, Content-ID `9dcc0489-e7fb-4d85-b267-5b6c46d7edb0`), preservando campos, checkbox, resumo de erro e formulários alinhados à esquerda para legibilidade.
+- Nova observação de Gabriele em 2026-08-23 14:28 UTC: a tela pública de login ainda exibia o logo antigo. Verificação externa em `https://upskillrh.online/login` confirmou que o ambiente publicado ainda estava servindo HTML antigo com `upskills-logo.svg`, enquanto o código no repositório já referencia o PNG novo. Próxima ação depende de autorização explícita de Jeff para restart/deploy/reload em produção; não executado neste job por ser ação de produção vedada sem confirmação.
 - Nova verificação da correção complementar executada:
   - `make test` — passou.
   - `make build` — passou.
   - Parser HTML local com `html.parser` — passou para login, cadastro, área da empresa e área do candidato.
   - Checagem estática local — passou: todos os templates de autenticação referenciam `/static/img/upskill-logo-gabriele-20260823.png`, o asset existe e não há referência remanescente a `upskills-logo.svg` nesses templates.
   - Checagem estática local do CSS — passou: `.login-card` usa `text-align: center`, `.brand` centraliza com flex e `.field`, `.check-row` e `.summary` permanecem com `text-align: left`.
+  - Verificação pública sem deploy: `https://upskillrh.online/login` ainda retornou HTML antigo com `upskills-logo.svg`; `/static/img/upskill-logo-gabriele-20260823.png` retornou HTTP 200. Diagnóstico: asset novo está disponível, mas a aplicação publicada precisa ser reiniciada/publicada para servir o template atualizado.
 - Verificação executada:
   - `make test` — passou.
   - `make build` — passou.
@@ -86,3 +88,4 @@ Reformular os textos da home/landing page para cobrir:
 - 2026-08-23 14:18 UTC: Gabriele enviou atualização no mesmo thread solicitando considerar a imagem anexada como logo e aplicá-la na página inicial e na página de login. Gmail message ID `1a02efc6da89ba54`, thread `1a02ecbb70babe21`.
 - 2026-08-23 14:23 UTC: Gabriele apontou que ainda faltava alterar a página de login. A correção foi interpretada como cobertura completa do fluxo de autenticação, pois `/login` já estava atualizado; registradas alterações em cadastro, área da empresa e área do candidato. Gmail message ID `1a02f00fb4e4b559`, thread `1a02ecbb70babe21`.
 - 2026-08-23 14:25 UTC: Gabriele solicitou centralizar os textos da página de login e anexou imagem inline de referência. Gmail message ID `1a02f035ffe25e2d`, thread `1a02ecbb70babe21`.
+- 2026-08-23 14:28 UTC: Gabriele reportou que o logo ainda estava errado na tela de login. Foi confirmado que o ambiente público ainda serve template antigo, apesar do repositório já estar corrigido; restart/deploy de produção ficou pendente de autorização explícita de Jeff. Gmail message ID `1a02f05f744f488b`, thread `1a02ecbb70babe21`.
