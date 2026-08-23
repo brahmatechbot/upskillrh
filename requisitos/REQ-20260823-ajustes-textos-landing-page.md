@@ -60,14 +60,18 @@ Reformular os textos da home/landing page para cobrir:
 - Requisito registrado neste arquivo.
 - Landing page atualizada em `/site/index.html` com metadados, navegação, hero, problema, evidências, solução, jornada, valor para todos, governança de IA, mercado, indicadores, CTA final e rodapé.
 - Estilos atualizados em `/site/styles.css` para suportar os novos blocos, cards, tabelas e responsividade.
+- Logo anexado por Gabriele aplicado na landing page como imagem de marca e favicon: `/site/assets/upskill-logo-gabriele-20260823.png`.
+- Logo anexado aplicado na página de login como imagem de marca e favicon: `/backend/web/static/img/upskill-logo-gabriele-20260823.png`.
+- Ajustes de tamanho/cache bust em `/site/styles.css`, `/site/index.html`, `/backend/web/templates/auth/login.html` e `/backend/web/static/css/pages/login.css`.
 - Verificação executada:
   - `make test` — passou.
   - `make build` — passou.
   - Parser HTML local com `html.parser` — passou.
-  - Servidor estático local (`python3 -m http.server`) + `curl` com Host header — passou.
+  - Servidor estático local (`python3 -m http.server`) + `curl` com Host header — passou para landing e arquivo PNG do logo.
 - Commit enviado ao GitHub: `ca83da2` (`Update landing page positioning copy`).
 
 ## Histórico
 
 - 2026-08-23: solicitação recebida por email de remetente autorizado e registrada para implementação.
 - 2026-08-23: alteração de frontend implementada e validada localmente.
+- 2026-08-23 14:18 UTC: Gabriele enviou atualização no mesmo thread solicitando considerar a imagem anexada como logo e aplicá-la na página inicial e na página de login. Gmail message ID `1a02efc6da89ba54`, thread `1a02ecbb70babe21`.

@@ -85,7 +85,7 @@ body::before {
 }
 
 .brand-logo {
-  width: 10.5rem;
+  width: 6rem;
   height: auto;
 }
 
@@ -234,6 +234,6 @@ a:hover { color: var(--accent-dark); }
   .login-card { padding: 1.35rem; border-radius: 1.1rem; }
   .password-row { flex-direction: column; }
   .ghost-button { min-height: 2.75rem; }
-  .brand-logo { width: 9rem; }
+  .brand-logo { width: 5.25rem; }
   .signup-grid, .type-picker, .status-grid { grid-template-columns: 1fr; }
 }

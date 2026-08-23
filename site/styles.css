@@ -58,7 +58,7 @@ img { max-width: 100%; display: block; }
   gap: 12px;
   text-decoration: none;
 }
-.logo img { width: 168px; height: auto; }
+.logo img { width: auto; height: 56px; }
 
 .nav-links {
   display: flex;
@@ -455,5 +455,5 @@ section { padding: 92px 0; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .site-header .button { width: auto; }
   .button { width: 100%; }
-  .logo img { width: 144px; }
+  .logo img { height: 48px; }
 }
