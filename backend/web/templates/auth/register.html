@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro | UP Skill</title>
+  <link rel="icon" href="/static/img/upskills-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/css/pages/login.css?v=3">
+</head>
+<body>
+  <main class="login-shell">
+    <section class="login-card wide-card" aria-labelledby="register-title" data-initial-type="{{ .InitialType }}">
+      <a class="brand" href="/" aria-label="UP Skill"><img class="brand-logo" src="/static/img/upskills-logo.svg" alt="UP Skill"></a>
+      <div id="form-summary" class="summary" role="alert" tabindex="-1" hidden></div>
+      <h1 id="register-title">Criar conta</h1>
+      <p class="intro">Escolha o contexto inicial. A seleção só cria dados após o envio.</p>
+      <input type="hidden" id="csrf_token" value="{{ .CSRFToken }}">
+
+      <fieldset class="type-picker" aria-label="Tipo de cadastro">
+        <legend>Tipo de cadastro</legend>
+        <label class="choice-card"><input type="radio" name="account_type" value="company"><strong>Empresa</strong><span>Quero cadastrar uma empresa, publicar vagas e acompanhar processos seletivos.</span></label>
+        <label class="choice-card"><input type="radio" name="account_type" value="candidate"><strong>Candidato</strong><span>Quero criar meu acesso e participar de processos seletivos.</span></label>
+      </fieldset>
+
+      <form id="register-form" novalidate>
+        <div class="field candidate-only"><label for="full_name">Nome completo</label><input id="full_name" name="full_name" type="text" autocomplete="name" maxlength="160"><p class="field-error" id="full_name-error"></p></div>
+        <div class="field company-only"><label for="responsible_name">Nome do responsável</label><input id="responsible_name" name="responsible_name" type="text" autocomplete="name" maxlength="160"><p class="field-error" id="responsible_name-error"></p></div>
+        <div class="field"><label for="email">E-mail<span class="company-label"> profissional</span></label><input id="email" name="email" type="email" autocomplete="username" maxlength="254" required><p class="field-error" id="email-error"></p></div>
+        <div class="field"><label for="password">Senha</label><div class="password-row"><input id="password" name="password" type="password" autocomplete="new-password" maxlength="1024" required><button type="button" id="toggle-password" class="ghost-button">Mostrar</button></div><p class="hint">Mínimo de 8 caracteres. Colagem e gerenciadores de senha são permitidos.</p><p class="field-error" id="password-error"></p></div>
+        <div class="field"><label for="password_confirmation">Confirmação da senha</label><input id="password_confirmation" name="password_confirmation" type="password" autocomplete="new-password" maxlength="1024" required><p class="field-error" id="password_confirmation-error"></p></div>
+
+        <div class="field candidate-only"><label for="cpf">CPF</label><input id="cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" maxlength="14"><p class="hint">O CPF é validado e protegido no backend; não será exibido integralmente depois.</p><p class="field-error" id="cpf-error"></p></div>
+
+        <div class="company-only">
+          <div class="field"><label for="trade_name">Nome da empresa</label><input id="trade_name" name="trade_name" type="text" maxlength="180"><p class="field-error" id="trade_name-error"></p></div>
+          <div class="field"><label for="employee_range_code">Número de funcionários</label><select id="employee_range_code" name="employee_range_code"><option value="">Selecione</option><option value="solo">Somente eu</option><option value="2_10">2 a 10</option><option value="11_50">11 a 50</option><option value="51_200">51 a 200</option><option value="201_500">201 a 500</option><option value="501_1000">501 a 1.000</option><option value="1001_5000">1.001 a 5.000</option><option value="5000_plus">Mais de 5.000</option></select><p class="field-error" id="employee_range_code-error"></p></div>
+          <div class="field"><label for="cnpj">CNPJ</label><input id="cnpj" name="cnpj" type="text" inputmode="numeric" autocomplete="off" maxlength="18"><p class="field-error" id="cnpj-error"></p></div>
+          <div class="field"><label for="industry_segment_code">Segmento</label><select id="industry_segment_code" name="industry_segment_code"><option value="">Selecione</option><option value="technology_software">Tecnologia e Software</option><option value="financial_services_banks">Serviços Financeiros e Bancos</option><option value="insurance">Seguros</option><option value="telecommunications">Telecomunicações</option><option value="media_entertainment">Mídia e Entretenimento</option><option value="consulting_professional_services">Consultoria e Serviços Profissionais</option><option value="other">Outro</option></select><p class="field-error" id="industry_segment_code-error"></p></div>
+          <div class="field" id="other-segment-wrap" hidden><label for="other_industry_segment">Qual segmento?</label><input id="other_industry_segment" name="other_industry_segment" type="text" maxlength="80"><p class="field-error" id="other_industry_segment-error"></p></div>
+        </div>
+
+        <label class="check-row"><input id="accept_terms" type="checkbox"> <span>Aceito os <a href="/termos-de-uso">Termos de Uso</a>.</span></label><p class="field-error" id="accept_terms-error"></p>
+        <label class="check-row"><input id="accept_privacy" type="checkbox"> <span>Confirmo ciência da <a href="/politica-de-privacidade">Política de Privacidade</a>.</span></label><p class="field-error" id="accept_privacy-error"></p>
+        <label class="check-row"><input id="marketing_granted" type="checkbox"> <span>Aceito receber comunicações de marketing. Opcional.</span></label>
+        <button id="submit-button" class="primary-button" type="submit"><span class="button-text">Criar conta</span><span class="spinner" aria-hidden="true"></span></button>
+      </form>
+      <div class="secondary-links"><a href="/login">Já tenho conta</a> · <a href="/">Voltar</a></div>
+    </section>
+  </main>
+  <script src="https://code.jquery.com/jquery-4.0.0.min.js" defer></script>
+  <script src="/static/js/pages/register.js?v=1" defer></script>
+</body>
+</html>

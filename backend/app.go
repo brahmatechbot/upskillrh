@@ -31,7 +31,11 @@ func (a *app) routes() http.Handler {
 	mux.HandleFunc("/api/health", a.handleHealth)
 	if a.authHandler != nil {
 		mux.HandleFunc("/login", a.authHandler.LoginPage)
+		mux.HandleFunc("/cadastro", a.authHandler.RegisterPage)
+		mux.HandleFunc("/candidate", a.authHandler.CandidatePage)
+		mux.HandleFunc("/app", a.authHandler.CompanyAppPage)
 		mux.HandleFunc("/api/v1/auth/login", a.authHandler.LoginAPI)
+		mux.HandleFunc("/api/v1/auth/register", a.authHandler.RegisterAPI)
 		mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/static"))))
 	}
 	return mux

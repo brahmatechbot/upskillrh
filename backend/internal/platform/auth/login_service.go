@@ -31,6 +31,10 @@ type Store interface {
 	UpdateLastLogin(ctx context.Context, userID string) error
 }
 
+type LoginDestinationResolver interface {
+	LoginDestination(ctx context.Context, userID string) (string, error)
+}
+
 type RateLimiter interface {
 	Allow(key string) (bool, time.Duration)
 }
@@ -120,7 +124,13 @@ func (s *LoginService) Login(ctx context.Context, email, password string, rememb
 		return LoginResult{}, err
 	}
 	_ = s.store.UpdateLastLogin(ctx, user.ID)
-	return LoginResult{User: user, NextURL: "/app", SessionRaw: rawToken, CSRFToken: csrfToken, IdleExpiry: idle, AbsoluteExp: absolute}, nil
+	nextURL := "/app"
+	if resolver, ok := s.store.(LoginDestinationResolver); ok {
+		if resolved, err := resolver.LoginDestination(ctx, user.ID); err == nil && resolved != "" {
+			nextURL = resolved
+		}
+	}
+	return LoginResult{User: user, NextURL: nextURL, SessionRaw: rawToken, CSRFToken: csrfToken, IdleExpiry: idle, AbsoluteExp: absolute}, nil
 }
 
 func randomToken(size int) (string, error) {

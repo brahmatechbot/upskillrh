@@ -58,6 +58,8 @@ body::before {
   overflow: hidden;
 }
 
+.wide-card { width: min(100%, 48rem); }
+
 .login-card::after {
   content: "";
   position: absolute;
@@ -110,7 +112,7 @@ h1 {
 .field { margin-bottom: 1rem; }
 label { display: block; font-weight: 800; margin-bottom: .4rem; }
 
-input[type="email"], input[type="password"] {
+input[type="email"], input[type="password"], input[type="text"], select {
   width: 100%;
   min-height: 3rem;
   padding: .75rem .9rem;
@@ -123,6 +125,8 @@ input[type="email"], input[type="password"] {
 
 input[type="email"]:hover,
 input[type="password"]:hover,
+input[type="text"]:hover,
+select:hover,
 .ghost-button:hover {
   border-color: rgba(112, 87, 238, .48);
 }
@@ -198,6 +202,31 @@ a { color: var(--accent); font-weight: 800; }
 a:hover { color: var(--accent-dark); }
 .legal { font-size: .9rem; }
 
+.signup-options { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+.signup-options h2, .wide-card h2 { margin: 0 0 .8rem; font-size: 1.1rem; letter-spacing: -.02em; }
+.signup-grid, .type-picker, .status-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+.signup-card, .choice-card, .status-grid article, .notice {
+  display: block;
+  padding: .95rem;
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+}
+.signup-card strong, .choice-card strong, .status-grid strong { display: block; margin-bottom: .35rem; }
+.signup-card span, .choice-card span, .status-grid span, .hint { color: var(--muted); font-size: .93rem; }
+.signup-card:hover, .choice-card:has(input:checked) { border-color: var(--accent); box-shadow: 0 10px 26px rgba(112,87,238,.12); }
+.type-picker { margin: 1rem 0 1.2rem; padding: 0; border: 0; }
+.type-picker legend { grid-column: 1 / -1; font-weight: 900; margin-bottom: .2rem; }
+.choice-card { cursor: pointer; }
+.choice-card input { margin-right: .35rem; accent-color: var(--accent); }
+.hint { margin: .35rem 0 0; }
+.notice { margin: 1rem 0; background: rgba(217,244,38,.25); border-color: rgba(112,87,238,.25); }
+.next-list { padding-left: 1.25rem; }
+.next-list li { margin: .45rem 0; }
+.next-list .disabled { color: var(--muted); }
+
 @keyframes spin { to { transform: rotate(360deg); } }
 
 @media (max-width: 480px) {
@@ -205,4 +234,5 @@ a:hover { color: var(--accent-dark); }
   .password-row { flex-direction: column; }
   .ghost-button { min-height: 2.75rem; }
   .brand-logo { width: 9rem; }
+  .signup-grid, .type-picker, .status-grid { grid-template-columns: 1fr; }
 }

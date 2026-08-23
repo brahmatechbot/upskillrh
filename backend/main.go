@@ -25,7 +25,13 @@ func main() {
 
 	authRepo := platformauth.NewPostgresRepository(pool)
 	authService := platformauth.NewLoginService(authRepo, platformauth.NewMemoryRateLimiter(5, 5*time.Minute))
-	authHandler, err := platformauth.NewHandler(authService, "web/templates/auth/login.html")
+	registrationService := platformauth.NewRegistrationService(authRepo)
+	authHandler, err := platformauth.NewHandler(authService, registrationService,
+		"web/templates/auth/login.html",
+		"web/templates/auth/register.html",
+		"web/templates/auth/candidate.html",
+		"web/templates/auth/app.html",
+	)
 	if err != nil {
 		log.Fatalf("load login template: %v", err)
 	}

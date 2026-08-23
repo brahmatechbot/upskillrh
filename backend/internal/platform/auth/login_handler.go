@@ -11,16 +11,20 @@ import (
 )
 
 type Handler struct {
-	service *LoginService
-	tmpl    *template.Template
+	service             *LoginService
+	registrationService *RegistrationService
+	tmpl                *template.Template
 }
 
-func NewHandler(service *LoginService, templatePath string) (*Handler, error) {
-	t, err := template.ParseFiles(templatePath)
+func NewHandler(service *LoginService, registrationService *RegistrationService, templatePaths ...string) (*Handler, error) {
+	if len(templatePaths) == 0 {
+		templatePaths = []string{"web/templates/auth/login.html"}
+	}
+	t, err := template.ParseFiles(templatePaths...)
 	if err != nil {
 		return nil, err
 	}
-	return &Handler{service: service, tmpl: t}, nil
+	return &Handler{service: service, registrationService: registrationService, tmpl: t}, nil
 }
 
 func (h *Handler) LoginPage(w http.ResponseWriter, r *http.Request) {
