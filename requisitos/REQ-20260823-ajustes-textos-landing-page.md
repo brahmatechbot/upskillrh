@@ -61,8 +61,14 @@ Reformular os textos da home/landing page para cobrir:
 - Landing page atualizada em `/site/index.html` com metadados, navegação, hero, problema, evidências, solução, jornada, valor para todos, governança de IA, mercado, indicadores, CTA final e rodapé.
 - Estilos atualizados em `/site/styles.css` para suportar os novos blocos, cards, tabelas e responsividade.
 - Logo anexado por Gabriele aplicado na landing page como imagem de marca e favicon: `/site/assets/upskill-logo-gabriele-20260823.png`.
-- Logo anexado aplicado na página de login como imagem de marca e favicon: `/backend/web/static/img/upskill-logo-gabriele-20260823.png`.
+- Logo anexado aplicado inicialmente na tela `/login` como imagem de marca e favicon: `/backend/web/static/img/upskill-logo-gabriele-20260823.png`.
 - Ajustes de tamanho/cache bust em `/site/styles.css`, `/site/index.html`, `/backend/web/templates/auth/login.html` e `/backend/web/static/css/pages/login.css`.
+- Correção complementar solicitada por Gabriele em 2026-08-23 14:23 UTC: aplicar o mesmo logo também nas demais páginas do fluxo de login/autenticação (`/backend/web/templates/auth/register.html`, `/backend/web/templates/auth/app.html` e `/backend/web/templates/auth/candidate.html`) e uniformizar cache bust do CSS de autenticação.
+- Nova verificação da correção complementar executada:
+  - `make test` — passou.
+  - `make build` — passou.
+  - Parser HTML local com `html.parser` — passou para login, cadastro, área da empresa e área do candidato.
+  - Checagem estática local — passou: todos os templates de autenticação referenciam `/static/img/upskill-logo-gabriele-20260823.png`, o asset existe e não há referência remanescente a `upskills-logo.svg` nesses templates.
 - Verificação executada:
   - `make test` — passou.
   - `make build` — passou.
@@ -76,3 +82,4 @@ Reformular os textos da home/landing page para cobrir:
 - 2026-08-23: solicitação recebida por email de remetente autorizado e registrada para implementação.
 - 2026-08-23: alteração de frontend implementada e validada localmente.
 - 2026-08-23 14:18 UTC: Gabriele enviou atualização no mesmo thread solicitando considerar a imagem anexada como logo e aplicá-la na página inicial e na página de login. Gmail message ID `1a02efc6da89ba54`, thread `1a02ecbb70babe21`.
+- 2026-08-23 14:23 UTC: Gabriele apontou que ainda faltava alterar a página de login. A correção foi interpretada como cobertura completa do fluxo de autenticação, pois `/login` já estava atualizado; registradas alterações em cadastro, área da empresa e área do candidato. Gmail message ID `1a02f00fb4e4b559`, thread `1a02ecbb70babe21`.
