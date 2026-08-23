@@ -78,12 +78,19 @@ Implementar o pacote de autenticação e cadastro inicial composto por:
   - Verificação de acompanhamento: `make test` e `make build` passaram novamente.
 - Correção solicitada em 2026-08-23 13:57 +0000:
   - Message ID: `1a02ee9f3183526d` / Thread ID: `1a02e9f3ac742372`.
-  - Solicitação: tela de login ainda não refletia os novos links de cadastro.
+  - Solicitação: tela de login ainda não refletia os links de cadastro.
   - Ação: reforçada a renderização das chamadas de cadastro na tela de login, com texto auxiliar, versionamento do CSS e teste automatizado garantindo os links `/cadastro?tipo=empresa` e `/cadastro?tipo=candidato`.
   - Próxima ação: publicar/reiniciar o serviço backend em ambiente homologação/produção com autorização operacional, pois a instância local em `127.0.0.1:8092` ainda executava binário anterior carregado em memória.
+- Autorização operacional recebida em 2026-08-23 14:06 +0000:
+  - Message ID: `1a02ef1c37fefee5` / Thread ID: `1a02e9f3ac742372`.
+  - Solicitação: autorização explícita para executar a publicação/restart pendente do backend.
+  - Ação: executado `make test`, `make build`, gerado o binário de serviço com `go build -o upskillrh-backend .` e reiniciado `upskillrh-backend.service`.
+  - Verificação: serviço ativo em `127.0.0.1:8092`; `/login` local e via Nginx/SNI `https://upskillrh.online/login` retornaram HTTP 200 exibindo os links `/cadastro?tipo=empresa` e `/cadastro?tipo=candidato`.
+  - Observação: `https://upskillrh.com.br/login` ainda serviu HTML estático antigo porque o bloco HTTPS ativo no Nginx está configurado para `upskillrh.online`; não alterado por estar fora da autorização explícita deste email.
 
 ## Histórico
 
 - 2026-08-23: Requisito recebido por email autorizado, registrado e implementado em primeira versão funcional do pacote de cadastro inicial.
 - 2026-08-23: Gabriele solicitou atualização de progresso; status confirmado como primeira versão funcional em desenvolvimento, com pendência de validação em ambiente com banco migrado e definição do fluxo real de e-mail de verificação.
 - 2026-08-23: Gabriele reportou que a tela de login não refletia os links; correção registrada e coberta por teste automatizado, com publicação/restart pendente de autorização de ambiente.
+- 2026-08-23: Gabriele autorizou a publicação/restart pendente; backend recompilado, serviço reiniciado e `/login` validado localmente e via `https://upskillrh.online/login` com os links de cadastro.
