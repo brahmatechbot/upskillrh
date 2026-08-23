@@ -69,6 +69,7 @@ Reformular os textos da home/landing page para cobrir:
   - Parser HTML local com `html.parser` — passou.
   - Servidor estático local (`python3 -m http.server`) + `curl` com Host header — passou para landing e arquivo PNG do logo.
 - Commit enviado ao GitHub: `ca83da2` (`Update landing page positioning copy`).
+- Commit enviado ao GitHub para a atualização do logo: `b115a4d` (`Apply updated UP Skill logo`).
 
 ## Histórico
 
